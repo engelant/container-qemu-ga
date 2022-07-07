@@ -14,7 +14,7 @@ systemd:
         ConditionPathExists=/dev/virtio-ports/org.qemu.guest_agent.0
         
         [Service]
-        podman run --rm --name qemu-ga --privileged --net=host -v /dev:/dev -v /etc/os-release:/etc/os-release:ro -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket ghcr.io/engelant/container-qemu-ga
+        ExecStart=podman run --rm --name qemu-ga --privileged --net=host -v /dev:/dev -v /etc/os-release:/etc/os-release:ro -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket ghcr.io/engelant/container-qemu-ga
         
         [Install]
         WantedBy=multi-user.target
